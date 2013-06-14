@@ -15,8 +15,16 @@ unless File.exist?(keypair_private_key_path)
   raise "missing private key: #{keypair_private_key_path}"
 end
 
+# Ubuntu 13.04 "raring" EBS-backed i386 AMIs
 ami_by_region = {
-  "ap-southeast-2" => "ami-ebe675d1",
+  "ap-northeast-1" => "ami-39961e38",
+  "ap-southeast-1" => "ami-65763837",
+  "ap-southeast-2" => "ami-dbf86be1",
+  "eu-west-1" =>"ami-61cede15",
+  "sa-east-1" =>"ami-aed174b3",
+  "us-east-1" =>"ami-ffd1bb96",
+  "us-west-1" =>"ami-851836c0",
+  "us-west-2" =>"ami-9179e8a1",
 }
 
 Vagrant.configure("2") do |config|
