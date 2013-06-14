@@ -56,6 +56,11 @@ Vagrant.configure("2") do |config|
 
   config.berkshelf.enabled = true
 
+  config.vm.provision :shell, :inline => <<-BASH
+    echo "deb http://apt.opscode.com/ `lsb_release -cs`-0.10 main" | sudo tee /etc/apt/sources.list.d/opscode.list
+    apt-get install chef
+  BASH
+
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe 'apt::default'
     chef.add_recipe 'git'
