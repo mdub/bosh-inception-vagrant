@@ -16,14 +16,7 @@ unless File.exist?(keypair_private_key_path)
 end
 
 ami_by_region = {
-  "ap-northeast-1" => "ami-6b26ab6a",
-  "ap-southeast-1" => "ami-2b511e79",
-  "ap-southeast-2" => "ami-84a333be",
-  "eu-west-1" => "ami-3d160149",
-  "sa-east-1" => "ami-28e43e35",
-  "us-east-1" => "ami-c30360aa",
-  "us-west-1" => "ami-d383af96",
-  "us-west-2" => "ami-bf1d8a8f"
+  "ap-southeast-2" => "ami-ebe675d1",
 }
 
 Vagrant.configure("2") do |config|
@@ -38,17 +31,26 @@ Vagrant.configure("2") do |config|
 
     aws.region = region
     aws.ami = ami_by_region[region]
+    aws.security_groups = ["ssh"]
 
     aws.tags = { "Name" => "bosh-inception" }
 
-    aws.user_data = <<-'EOT'.gsub(/^\s+/, '')
-      #!/bin/sh
-      sed -i -e 's/^\(Defaults.*requiretty\)/#\1/' /etc/sudoers
-    EOT
+    # aws.user_data = <<-'EOT'.gsub(/^\s+/, '')
+    #   #!/bin/sh
+    #   sed -i -e 's/^\(Defaults.*requiretty\)/#\1/' /etc/sudoers
+    # EOT
 
     aws.keypair_name = keypair_name
     override.ssh.username = "ubuntu"
     override.ssh.private_key_path = keypair_private_key_path
 
   end
+
+  config.berkshelf.enabled = true
+
+  config.vm.provision :chef_solo do |chef|
+    chef.add_recipe 'apt::default'
+    chef.add_recipe 'git'
+  end
+
 end
