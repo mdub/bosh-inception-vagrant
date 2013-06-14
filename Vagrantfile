@@ -43,10 +43,10 @@ Vagrant.configure("2") do |config|
 
     aws.tags = { "Name" => "bosh-inception" }
 
-    # aws.user_data = <<-'EOT'.gsub(/^\s+/, '')
-    #   #!/bin/sh
-    #   sed -i -e 's/^\(Defaults.*requiretty\)/#\1/' /etc/sudoers
-    # EOT
+    aws.user_data = <<-'EOT'.gsub(/^\s+/, '')
+      #!/bin/sh
+      sed -i -e 's/^\(Defaults.*requiretty\)/#\1/' /etc/sudoers
+    EOT
 
     aws.keypair_name = keypair_name
     override.ssh.username = "ubuntu"
