@@ -56,16 +56,17 @@ Vagrant.configure("2") do |config|
 
   config.berkshelf.enabled = true
 
+  # Install Chef using the Omnibus installer
   config.vm.provision :shell, :inline => <<-BASH
-    chef --version || curl https://www.opscode.com/chef/install.sh | bash
+    chef-solo --version || curl -s -L https://www.opscode.com/chef/install.sh | bash
   BASH
 
   config.vm.provision :chef_solo do |chef|
-    chef.add_recipe 'apt::default'
+    chef.add_recipe 'apt'
     chef.add_recipe 'git'
-    chef.add_recipe 'chruby'
+    chef.add_recipe 'chruby::system'
     chef.json = {
-     "chruby" => {
+      "chruby" => {
         "rubies" => {
           "1.9.3-p429" => true
         },
