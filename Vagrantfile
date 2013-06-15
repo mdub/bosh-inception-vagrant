@@ -65,14 +65,6 @@ Vagrant.configure("2") do |config|
     chef.add_recipe 'apt'
     chef.add_recipe 'git'
     chef.add_recipe 'chruby::system'
-    chef.json = {
-      "chruby" => {
-        "rubies" => {
-          "1.9.3-p429" => true
-        },
-        "default" => "1.9.3-p429"
-      }
-    }
   end
 
 end
