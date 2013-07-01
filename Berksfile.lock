@@ -1,5 +1,5 @@
 {
-  "sha": "7e63e68baa278e2ddae7fecc4235ba1c4c892c25",
+  "sha": "e2085e5b28e0714ceb2bcf767cc042c3e6464039",
   "sources": {
     "apt": {
       "locked_version": "1.10.0",
@@ -8,10 +8,14 @@
     "git": {
       "locked_version": "2.5.0"
     },
-    "chef-brightbox": {
+    "brightbox": {
       "locked_version": "0.0.1",
       "git": "git://github.com/filtersquad/chef-brightbox.git",
       "ref": "e3d6fd53ad1f13e4824bb6bc2230397e38da6059"
+    },
+    "bosh-inception": {
+      "locked_version": "0.0.1",
+      "path": "cookbooks/bosh-inception"
     },
     "dmg": {
       "locked_version": "1.1.0"

@@ -65,6 +65,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe 'apt'
     chef.add_recipe 'git'
     chef.add_recipe 'brightbox::ruby'
+    chef.add_recipe 'bosh-inception'
   end
 
 end
