@@ -1,11 +1,36 @@
-cookbook 'apt', :locked_version => '1.10.0'
-cookbook 'git', :locked_version => '2.5.0'
-cookbook 'ruby_build', :locked_version => '0.7.2'
-cookbook 'rbenv', :git => 'git://github.com/fnichol/chef-rbenv.git', :ref => 'e10f98d5fd07bdb8d212ebf42160b65c39036b90'
-cookbook 'dmg', :locked_version => '1.1.0'
-cookbook 'build-essential', :locked_version => '1.4.0'
-cookbook 'yum', :locked_version => '2.2.2'
-cookbook 'windows', :locked_version => '1.8.10'
-cookbook 'chef_handler', :locked_version => '1.1.4'
-cookbook 'runit', :locked_version => '1.1.4'
-cookbook 'java', :locked_version => '1.11.4'
+{
+  "sha": "7e63e68baa278e2ddae7fecc4235ba1c4c892c25",
+  "sources": {
+    "apt": {
+      "locked_version": "1.10.0",
+      "constraint": "= 1.10.0"
+    },
+    "git": {
+      "locked_version": "2.5.0"
+    },
+    "chef-brightbox": {
+      "locked_version": "0.0.1",
+      "git": "git://github.com/filtersquad/chef-brightbox.git",
+      "ref": "e3d6fd53ad1f13e4824bb6bc2230397e38da6059"
+    },
+    "dmg": {
+      "locked_version": "1.1.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.0"
+    },
+    "yum": {
+      "locked_version": "2.2.2"
+    },
+    "windows": {
+      "locked_version": "1.8.10"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "runit": {
+      "locked_version": "1.1.4",
+      "constraint": ">= 1.0.0"
+    }
+  }
+}

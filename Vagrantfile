@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe 'apt'
     chef.add_recipe 'git'
-    chef.add_recipe 'chruby::system'
+    chef.add_recipe 'brightbox::ruby'
   end
 
 end
